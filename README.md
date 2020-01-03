@@ -4,11 +4,13 @@ A shinyApp package for Estimating Space Weather Benchmarks
 
 # Installation
 
+Open an RStudio or R session and type: 
+
 devtools::install_github("predsci/solarExtremes")
 
 # Running the ShinyApp
 
-There's only one exported function in the package and it runs the solarExtreme shinyApp package
+There's only one exported function in the package. In an RStudio session type:
 
 solarExtremes::launchApp()
 
