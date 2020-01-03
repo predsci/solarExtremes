@@ -6,13 +6,15 @@ A shinyApp package for Estimating Space Weather Benchmarks
 
 devtools::install_github("predsci/solarExtremes")
 
-# Run the ShinyApp
+# Running the ShinyApp
 
 There's only one exported function in the package and it runs the solarExtreme shinyApp package
 
 solarExtremes::launchApp()
 
 ... or .... 
+
+library(solarExtremes)
 
 launchApp()
 
