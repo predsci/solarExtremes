@@ -296,7 +296,7 @@ shinyAppServer <- function(input, output) {
 		} else if (input.var() == "sunspot") {
 			evntThreshold = 100
 		} else if (input.var() == "f107") {
-			evntThreshold = 100
+			evntThreshold = evntMax()
 		} else if (input.var() == "bn") {
 			evntThreshold = -2
 		} else {
@@ -600,7 +600,7 @@ shinyAppServer <- function(input, output) {
 		if (is.null(df())) 
 			return(NULL)
 		pl1 <- ggplot(data = df(), aes(x = evnt_time, xend = evnt_time, y = 0, yend = abs(value), group = variable, color = variable)) + ggtitle(paste0("Raw ", input.var.name(), " Data ")) + theme(legend.position = "none") + 
-			scale_x_datetime(name = "Year", date_breaks = date_breaks(), date_labels = "%Y") + scale_y_continuous(name = ytit1()) + geom_segment(colour = "darkblue")
+			scale_x_datetime(name = "Time (Years)", date_breaks = date_breaks(), date_labels = "%Y") + scale_y_continuous(name = ytit1()) + geom_segment(colour = "darkblue")
 		pl1
 	})
 
@@ -608,7 +608,7 @@ shinyAppServer <- function(input, output) {
 		if (is.null(dfc())) 
 			return(NULL)
 		pl2 <- ggplot(data = dfc(), aes(x = evnt_time, xend = evnt_time, y = 0, yend = abs(value), group = variable, color = variable)) + geom_segment() + ggtitle(paste0("Selected ", input.var.name(), 
-			" Data")) + theme(legend.position = "none") + scale_x_datetime(name = "Year", date_breaks = date_breaks(), date_labels = "%Y") + scale_y_continuous(name = ytit11())
+			" Storm Events")) + theme(legend.position = "none") + scale_x_datetime(name = "Time (Years)", date_breaks = date_breaks(), date_labels = "%Y") + scale_y_continuous(name = ytit11())
 		pl2
 	})
 
@@ -865,7 +865,7 @@ shinyAppServer <- function(input, output) {
 	})
 
 	output$footnoteCompareModels <- renderText({
-		paste0("<b>", "Background: ", "</b>", "The Vuong's test statistic ", "R", "<sub>", "V", " compares two models under the hypothesis that both distributions are equally far from the true\n          distribution. If true, the log-likelihood ratio will have a mean value of zero.  If the first (or second) models are significantly\n          better than the other ", 
+		paste0("<b>", "Background: ", "</b>", " The Vuong's test statistic ", "R", "<sub>", "V", "</sub>", " compares two models under the hypothesis that both distributions are equally far from the true\n          distribution. If true, the log-likelihood ratio will have a mean value of zero.  If the first (or second) models are significantly\n          better than the other ", 
 			"<i>", "R", "<sub>", "V", "</sub>", "</i>", " will move toward plus (or minus) infinity.", "<br/>", "The one-sided and\n          two-sided ", "<i>", "p", "</i>", " values estimate the significance of the ", 
 			"<i>", "R", "<sub>", "V", "</sub>", "</i>", " statistic.\n          The one-sided approach tests the null hypothesis that both distributions are equally far from the true distribution against the\n          hypothesis that model A is closer to the true distribution. The two sided version tests the same null hypothesis\n           against the alternative that one of the distributions is closer.  The null hypothesis is rejected if ", 
 			"<i>", "p", "</i>", " < 0.05.")
