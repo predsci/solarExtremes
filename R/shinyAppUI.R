@@ -261,9 +261,9 @@ shinyAppUI <- fluidPage(# App title ----
                             tabsetPanel(
                               type = "tabs",
                               tabPanel(
-                                "Visulaizations",
+                                "Visualizations",
                                 tags$hr(),
-                                withLoader(plotlyOutput("Plot1", height = "auto", width = "auto"), type ='html', loader ='loader4'),
+                                withLoader(plotlyOutput("Plot1", height = "auto", width = "auto"), type ='html', loader = 'loader4'),
                                 withLoader(plotlyOutput("Plot2", height = "auto", width = "auto"), type ='html', loader ='loader4')
                               ),
                               tabPanel(
@@ -277,7 +277,7 @@ shinyAppUI <- fluidPage(# App title ----
                                 "Standard Analysis",
                                 br(),
                                 br(),
-                                withLoader(plotlyOutput("ClausetPlot1", height = "auto", width = "auto"), type ='html', loader ='loader4'),
+                                withLoader(plotlyOutput("ClausetPlot1", height = "auto", width = "auto"), type = 'html', loader = 'loader4'))),
                                 br(),
                                 withLoader(plotlyOutput("ClausetPlot2", height = "auto", width = "auto"), type ='html', loader ='loader4'),
                                 br(),
@@ -310,13 +310,13 @@ shinyAppUI <- fluidPage(# App title ----
                               tabPanel("Documentation",
                               br(),
                               h3("Background"),
-                              tags$p("Space weather refers to the state and future conditions of the space environment surrounding the Earth, including within the Earth's magentosphere. Extreme Space Weather refers to conditions that are so far removed from the norm, that they are rare.  This page provides a prototype tool for estimating the probability of an extreme solar event, together with the uncertainties associated with that estimate."),
+                              tags$p("Space weather refers to the state and future conditions of the space environment surrounding the Earth, including within the Earth's magnetosphere. Extreme Space Weather refers to conditions that are so far removed from the norm, that they are rare.  This page provides a prototype tool for estimating the probability of an extreme solar event, together with the uncertainties associated with that estimate."),
                               br(),
                               h3("Methods"),
                               tags$p("Below we briefly describe what each tab does. For more details about the models see our ",tags$a("2012", target="_blank",href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011SW000734"),",", tags$a("2017",target="_blank",href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016SW001470"), "and ", tags$a("2018",target="_blank",href="https://www.sciencedirect.com/science/article/pii/B9780128127001000054?via%3Dihub"), " publications. For the Peak Over Threshold (POT) method we use the ",tags$a("extRemes 2.0",target="_blank",href="https://www.jstatsoft.org/article/view/v072i08") , " R package."),
                               br(),
-							  tags$ul(tags$li("In the ", tags$b("Standard Analysis"), " tab, we use three distributions: power-law, log-normal and exponential to fit the tail of the distibution of different space weather parameters:  geomagnetic indices (Dst, AE, AL, AU, AP, and Ey), interplanetary indices (CME speed, Bn, Bz (GSM), solar wind speed, and plasma beta), solar indices (sun spot number and F10.7 index).  For each disribution, we estimate the best model parameters and generate an ensemble of possible realizations using nonparametric bootstrapping to compute the uncertainty associated with a particular forecast."),
-							  	tags$li(" We also use the Vuong's test, which relies on a likelihood ratio test to see if one model is more favorable than another.  We compare the Power-Law model to the Log-Normal and Exponentail models, and the Log-Normal model to the Exponential model."),
+							  tags$ul(tags$li("In the ", tags$b("Standard Analysis"), " tab, we use three distributions: power-law, log-normal and exponential to fit the tail of the distribution of different space weather parameters:  geomagnetic indices (Dst, AE, AL, AU, AP, and Ey), interplanetary indices (CME speed, Bn, Bz (GSM), solar wind speed, and plasma beta), solar indices (sun spot number and F10.7 index).  For each distribution, we estimate the best model parameters and generate an ensemble of possible realizations using nonparametric bootstrapping to compute the uncertainty associated with a particular forecast."),
+							  	tags$li(" We also use the Vuong's test, which relies on a likelihood ratio test to see if one model is more favorable than another.  We compare the Power-Law model to the Log-Normal and Exponential models, and the Log-Normal model to the Exponential model."),
 							  	tags$li("The ", tags$b("POT"), " (Peak Over Threshold) tab uses a Generalized Pareto distibution to fit the values that exceed a certain threshold. The threshold is set either manually or by minimizing the Kolmogotov-Smirnov (KS) goodness-of-fit statistic. The same threshold is used in the Standard Analysis and POT tabs."),
 							  	tags$li("The ", tags$b("Events Table"), "tab provides a searchable table of events that were identified for a continuous time series.")),
 							  	br(),
@@ -335,7 +335,7 @@ shinyAppUI <- fluidPage(# App title ----
 							  	 tags$ul(
 							  	 tags$li("Select the ", tags$b("User Data"), " button and click on the ", tags$b("Submit"), " button."),
 							  	tags$li("Use the", tags$b("Browse")," window to select and upload your csv file. Once the file is loaded you should see an ", tags$b("upload complete")," bar and shortly after the data will be displayed. "),
-							  	tags$li("If the dataset was correcltly uploaded it can be modeled as described above.")),
+							  	tags$li("If the dataset was correctly uploaded it can be modeled as described above.")),
 							  	br(),
        							h3("Technology"),
         						tags$p("This package was written in R, and displayed using R shinyApp and plotly."),
