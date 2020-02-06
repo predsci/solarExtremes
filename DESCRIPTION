@@ -16,8 +16,8 @@ Depends: shiny,
       scales, 
       stringr, 
       shinyWidgets, 
-      shinycssloaders
-Description: The shinyApp solarExtremes provides statistical estimates and uncertainties for the occurence rate of an extreme geomagnetic storm.  
+      shinycustomloader
+Description: The shinyApp solarExtremes provides statistical estimates and uncertainties for the occurance rate of an extreme geomagnetic storm.  
     The distribution of events are modeled as power law, lognormal and exponential.  The Kolmogorov-Smirnov statistic is used to estimate the goodness of fit.
     The uncertainty in the estimates is calculated using the bootstrap method and likelihood ratio tests assess whether one distribution is preferred over another.
     The package includes a data base of geomagnetic (Dst, AE, AL, AP, AU and Ey), interplanetary (Bn, Bz, CMEs, solar wind speed, and plasma beta), 
